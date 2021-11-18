@@ -1,10 +1,8 @@
-export type TileType = "O" | "X" | ""
+export type TurnType = "O" | "X";
+export type TileType = TurnType | "";
 
-export type RowType = [TileType, TileType, TileType]
+export type LocationType = [number, number];
 
-export type BoardType = [RowType, RowType, RowType]
+export type RowType = TileType[];
 
-export type ActionType = {
-    type: "setX" | "setO",
-    payload: 0|1|2|3|4|5|6|7|8
-}
+export type BoardType = RowType[];
