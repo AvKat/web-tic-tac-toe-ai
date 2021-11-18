@@ -1,0 +1,37 @@
+#main {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #323232;
+
+
+	#board {
+		.row {
+			display: flex;
+			flex-direction: row;
+
+			.tile {
+				width: 50px;
+				aspect-ratio: 1;
+				margin: 5px;
+				background-color: black;
+				cursor: pointer;
+				font-size: 30px;
+				font-weight: bold;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: wheat;
+				font-family: monospace;
+			}
+			.tile.alt {
+				background-color: brown;
+			}
+			.tile.full {
+				cursor: not-allowed;
+			}
+		}
+	}
+}

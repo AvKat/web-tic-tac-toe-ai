@@ -4,13 +4,18 @@ import { Tile } from "../Tile";
 
 interface RowProps {
   state: RowType;
+  rowNum: number;
 }
 
-const Row: React.FC<RowProps> = ({ state }) => {
+const Row: React.FC<RowProps> = ({ state, rowNum }) => {
   return (
-    <div id="row">
+    <div className="row">
       {state.map((tile, i) => (
-        <Tile state={tile} key={`tile-${i}-${tile}`} />
+        <Tile
+          state={tile}
+          location={[rowNum, i]}
+          key={`tile-${rowNum * 3 + i}`}
+        />
       ))}
     </div>
   );
