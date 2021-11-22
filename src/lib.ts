@@ -12,6 +12,13 @@ const deepCopy: (inp: any[]) => any[] = (inp) => {
   return res;
 };
 
+const chooseRandom = (arr: any[]) => {
+  let i,
+    n = arr.length;
+  i = Math.floor(Math.random() * n);
+  return arr[i];
+};
+
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -23,4 +30,4 @@ const winConditions = [
   [2, 4, 6],
 ];
 
-export { deepCopy, winConditions };
+export { deepCopy, winConditions, chooseRandom };
