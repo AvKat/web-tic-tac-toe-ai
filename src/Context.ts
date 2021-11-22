@@ -1,6 +1,6 @@
 import React from "react";
-import { LocationType } from "./types";
+import { ActionType, } from "./types";
 
-const DispatchContext = React.createContext((value: LocationType) => {});
+const DispatchContext = React.createContext((value: ActionType) => { });
 
 export { DispatchContext };

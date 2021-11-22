@@ -17,7 +17,10 @@ const Tile: React.FC<TileProps> = ({ state, location }) => {
   const onClick = () => {
     if (!empty) return;
 
-    dispatch(location);
+    dispatch({
+      type: "set",
+      payload: location
+    });
   };
 
   return (
