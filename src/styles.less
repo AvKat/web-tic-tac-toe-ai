@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: #323232;
 
   #board {
@@ -32,5 +33,29 @@
         cursor: not-allowed;
       }
     }
+  }
+
+  h1 {
+    color: transparent;
+    font-family: monospace;
+  }
+  h1.win {
+    color: green;
+  }
+  h1.lose {
+    color: red;
+  }
+  h1.draw {
+    color: yellow;
+  }
+
+  #reset {
+    padding: 5px;
+    margin: 30px;
+    font-size: 15px;
+    opacity: 1;
+  }
+  #reset.hidden {
+    opacity: 0;
   }
 }
