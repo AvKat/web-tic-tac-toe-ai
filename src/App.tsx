@@ -6,11 +6,13 @@ import { emptyBoard, reducer } from "./reducer";
 import "./styles.less";
 
 const dummyText = "TTT";
+const initialScore = { player: 0, ai: 0 };
 
 function App() {
   const [boardState, dispatch] = useReducer(reducer, emptyBoard);
   const [isGameOver, setGameOver] = useState(false);
   const [endText, setText] = useState(dummyText);
+  const [scores, setScore] = useState(initialScore);
   const player = "X";
 
   useEffect(() => {
@@ -19,9 +21,13 @@ function App() {
       setGameOver(true);
       if (status === "D") {
         setText("Draw");
-        return;
+      } else if (status === player) {
+        setText("You Win");
+        incrementScore(true);
+      } else {
+        setText("You Lose");
+        incrementScore(false);
       }
-      setText(status === player ? "You Win" : "You Lose");
     } else {
       setGameOver(false);
     }
@@ -30,6 +36,17 @@ function App() {
   const resetBtnClick = () => {
     setText(dummyText);
     dispatch({ type: "reset" });
+  };
+
+  const incrementScore = (isPlayer: boolean) => {
+    setScore((s) => {
+      if (isPlayer) {
+        s.player += 1;
+      } else {
+        s.ai += 1;
+      }
+      return s;
+    });
   };
 
   return (
@@ -49,6 +66,10 @@ function App() {
           {endText}
         </h1>
         <Board state={boardState} />
+        <div id="scores">
+          <h2>You: {scores.player}</h2>
+          <h2>AI: {scores.ai}</h2>
+        </div>
         <button
           id="reset"
           onClick={resetBtnClick}
