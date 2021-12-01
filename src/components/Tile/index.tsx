@@ -12,14 +12,16 @@ const Tile: React.FC<TileProps> = ({ state, location }) => {
   const locNum = rowNum * 3 + tileNum;
   const empty = state === "";
 
-  const dispatch = useContext(DispatchContext);
+  const { dispatch, isGameOver } = useContext(DispatchContext);
+
+  const isClickable = empty && !isGameOver;
 
   const onClick = () => {
-    if (!empty) return;
+    if (!isClickable) return;
 
     dispatch({
       type: "set",
-      payload: location
+      payload: location,
     });
   };
 
@@ -28,7 +30,7 @@ const Tile: React.FC<TileProps> = ({ state, location }) => {
       className={[
         "tile",
         locNum % 2 === 0 ? "alt" : "",
-        empty ? "" : "full",
+        isClickable ? "" : "full",
       ].join(" ")}
       onClick={onClick}
     >

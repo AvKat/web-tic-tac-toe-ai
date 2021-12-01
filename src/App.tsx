@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div id="main">
-      <DispatchContext.Provider value={dispatch}>
+      <DispatchContext.Provider value={{ dispatch, isGameOver }}>
         <h1
           className={[
             endText.includes("W")
