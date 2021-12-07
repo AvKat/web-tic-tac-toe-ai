@@ -78,6 +78,7 @@ function App() {
         >
           Reset
         </button>
+        <span id="name">Made by Avish Kathpal</span>
       </DispatchContext.Provider>
     </div>
   );
